@@ -11,13 +11,13 @@ package prisonersdilemma;
 public class OTFTPlayer implements Player{
     int totalScore=initscore;
     int numwins=initscore;
-    int oppLastMove=Cooperate;
+    int oppLastMove=nomove;
     
     @Override
     public int makeMove() {
-         
+         if (oppLastMove>=0){
             return (oppLastMove);
-           
+         } else return (Cooperate);
         
     }
 
