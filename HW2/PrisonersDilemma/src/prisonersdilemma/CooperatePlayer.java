@@ -16,11 +16,11 @@ public class CooperatePlayer implements Player {
            
     @Override
     public int makeMove() {
-        return 0;
+        return Cooperate;
    
     }
 
-    @Override
+  
     public String name(){
         return "Cooperate";
        
@@ -31,4 +31,14 @@ public class CooperatePlayer implements Player {
         totalScore=totalScore+Score;
         
     }
+
+//    @Override
+//    public String getID() {
+//        throw new UnsupportedOperationException("Not supported yet.");
+//    }
+//
+//    @Override
+//    public void setscore(int myMove, int oppMove, int myScore, int oppScore, String oppID) {
+//        totalScore=totalScore+myScore;
+//    }
 }

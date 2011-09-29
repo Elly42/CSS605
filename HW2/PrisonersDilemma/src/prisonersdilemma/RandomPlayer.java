@@ -18,8 +18,10 @@ public class RandomPlayer implements Player {
     @Override
     public int makeMove() {
        Random r=new Random();
-       return (r.nextInt(2)); // returns a random integer 0 or 1
-     
+       if (r.nextBoolean()) return Cooperate;
+       else return Defect;
+       //nectBoolean randomly returns true or false with roughly equal probability
+       //this should randomly return Cooperate and Defect with equal probability
     }
 
     @Override

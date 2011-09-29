@@ -11,14 +11,14 @@ package prisonersdilemma;
 public class PTFTPlayer implements Player {
     // player defects then responds with opponent's last move
 
-    int oppLastMove=nomove;
+    int oppLastMove=Defect;
     int totalScore=initscore;
     int numwins=initscore;
     @Override
     public int makeMove() {
-        if (oppLastMove>-1){
+      
             return (oppLastMove);
-        }else return 1;
+    
     }
 
 

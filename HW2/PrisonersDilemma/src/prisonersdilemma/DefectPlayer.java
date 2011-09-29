@@ -17,7 +17,7 @@ public class DefectPlayer implements Player {
     
     @Override
     public int makeMove() {
-        return 1;
+        return Defect;
                 
     }
 

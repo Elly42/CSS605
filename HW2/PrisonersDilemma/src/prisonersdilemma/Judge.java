@@ -13,7 +13,7 @@ public class Judge {
      * keeps a total score
      */
    static final int CC=1; // both cooperate: player gets one month
-   static final int CD=12; 
+   static final int CD=5; 
    // player cooperates opponent defects: player gets 12 months
    static final int DC=0;
    //player defects opponent cooperated: player gets 0 months

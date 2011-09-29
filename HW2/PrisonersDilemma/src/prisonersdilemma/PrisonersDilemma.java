@@ -10,10 +10,23 @@ package prisonersdilemma;
  */
 public class PrisonersDilemma {
     
-     static int numRounds=10;
-
+    //to do - sort ties in playGame
+    // make human player
+    // make interesting player strategy (one chance cooperates until 
+    //opponent defects then always defects)
+    //fix tit for tat players so they know when a new match has started
+    // fix when a player plays itself it is the same instance of the class
+    // to do if time - get rid of random variables that don't do anything
+    // to do if time - add more comments
     
+    public static final int numRounds=100;
+    // variable for the number of times each pair plays the game
+    
+        
     static int playGame (Player p1, Player p2, int turns){
+        //runs a game between two players, returns the scores and the winner
+        // having this as an int no longer serves a purpose 
+        // purpose was to count the number of wins each player had
     Judge dredd = new Judge();
     for  (int i=0; i< turns; i++){
     int p1m=p1.makeMove();
@@ -42,6 +55,13 @@ public class PrisonersDilemma {
     
     }
     
+        public static void roundrobin (Player Self, Player [] Opps){
+            for (int i=0; i<5; i++){
+                int kwin=playGame (Self, Opps [i], numRounds);
+            }
+           
+        }
+    
         public static void main(String[] args) {
         // round robin tournament
             
@@ -51,10 +71,12 @@ public class PrisonersDilemma {
         Player r=new RandomPlayer ();
         Player c=new CooperatePlayer ();
         Player d=new DefectPlayer ();
-        Player t=new TFTPlayer ();
+//        Player t=new TFTPlayer ();
         Player o=new OTFTPlayer ();
         Player p=new PTFTPlayer ();
-        int [] numWins={0,0,0,0,0,0};
+        Player [] tourny= {r,c,d,o,p};
+        // array holds the players in the tournament
+        int [] numWins={0,0,0,0,0,0};   
         /* array to hold number of wins for each player {random, cooperate, 
         *defect, TFT, OTFT, PTFT}
         */
@@ -63,101 +85,12 @@ public class PrisonersDilemma {
         
         int maxValue=0;
         int idMax=-1;//magic number
-        int count=1;
         int win=0;
-        while (count<6){
         
-        if (count==1){
-            win=playGame (r,c,numRounds);
-        }else if (count==2){
-            win=playGame (r,d,numRounds);
-        }else if (count==3){
-            win=playGame (r,t,numRounds);
-        }else if (count==4){
-            win=playGame (r,o,numRounds);
-        }else if (count==5){
-            win=playGame (r,p,numRounds);
-        }    
-        if (win==0){
-            numWins[0]=numWins[0]+1;
+        for (int i=0; i<5; i++){
+            roundrobin (tourny[i], tourny);
         }
-        else {
-            numWins[count]=numWins[count]+1;
-        }
-        count=count+1;
-        }
-        
-   
-        while(count<10){
-
-                if (count==6){
-                    win=playGame(c,d,numRounds);
-                } else if (count==7){
-                    win=playGame(c,t,numRounds);
-                }else if (count==8){
-                    win=playGame(c,o,numRounds);
-                }else if (count==9){
-                    win=playGame(c,p,numRounds);
-                }
-                if (win==0){
-                    numWins[1]=numWins[1]+1;
-                }else {
-                    numWins[count-4]=numWins[count-4]+1;
-                }
-           
-        
-     count=count+1;
-            
-        }
-         
-                while (count<13){
-                
-                    if (count==10){
-                        win=playGame (d,t,numRounds);
-                    }else if (count==11){
-                        win=playGame (d,o,numRounds);
-                    }else if (count==12){
-                        win=playGame (d,p,numRounds);
-                    }
-                if (win==0){
-                    numWins[2]=numWins[2]+1;
-                }else {
-                    numWins[count-7]=numWins[count-7]+1;
-                }
-                count=count+1;
-                }
-            
-        
-        
-        
-       
-        win=playGame (t,o,numRounds);
-        if (win==0) numWins[3]=numWins[3]+1;
-        else numWins[4]=numWins[4]+1;
-        
-        win=playGame (t,p,numRounds);
-        if (win==0) numWins[3]=numWins[3]+1;
-        else numWins[5]=numWins[5]+1;
-        
-        win=playGame (p,o,numRounds);
-        if (win==0) numWins [4]=numWins[4]+1;
-        else numWins[5]=numWins[5]+1;
-                
-      for(int i=0; i<6; i++){
-          
-          if (numWins [i]>maxValue){
-              maxValue=numWins[i];
-              idMax=i;
-          }                  
-      }
-      
-      System.out.println ("The best strategy is "+playerNames[idMax]+
-              " with a total of "+maxValue+" wins!");
-      
-   
-       
- 
         
 
-    }
+        }  
 }
