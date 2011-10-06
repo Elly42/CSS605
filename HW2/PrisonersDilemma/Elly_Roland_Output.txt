@@ -1,0 +1,22 @@
+Player1	Player2	Score1	Score2	
+Random	Cooperate	9	64
+Random	Defect	74	39
+Random	Tempermental Player	77	32
+Random	You	84	24
+Random	Optimistic Tit-for-tat	46	51
+Random	Pessimistic Tit-for-tat	49	49
+Cooperate	Defect	100	0
+Cooperate	Tempermental Player	20	20
+Cooperate	You	100	0
+Cooperate	Optimistic Tit-for-tat	20	20
+Cooperate	Pessimistic Tit-for-tat	24	19
+Defect	Tempermental Player	57	62
+Defect	You	60	60
+Defect	Optimistic Tit-for-tat	57	62
+Defect	Pessimistic Tit-for-tat	60	60
+Tempermental Player	You	24	19
+Tempermental Player	Optimistic Tit-for-tat	20	20
+Tempermental Player	Pessimistic Tit-for-tat	59	59
+You	Optimistic Tit-for-tat	19	24 
+You	Pessimistic Tit-for-tat	23	23
+Optimistic Tit-for-tat	Pessimistic Tit-for-tat	50	50

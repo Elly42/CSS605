@@ -64,6 +64,8 @@ public class HumanPlayer implements Player {
         System.out.println ("Your opponent's move last round was "
                 +moves[oppMove] + ".");
         System.out.println ("You will serve " + Score + " months in jail.");
+        }else {
+            System.out.println ("That concludes this match. ");
         }
           
     }
