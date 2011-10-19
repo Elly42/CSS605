@@ -1,0 +1,22 @@
+Player1,Player2,Score1,Score2
+Random,Cooperate,7,22
+Random,Defect,36,21
+Random,Tempermental Player,35,20
+Random,Human,40,15
+Random,Optimistic Tit-for-tat,22,22
+Random,Pessimistic Tit-for-tat,26,26
+Cooperate,Defect,50,0
+Cooperate,Tempermental Player,10,10
+Cooperate,Human,50,0
+Cooperate,Optimistic Tit-for-tat,10,10
+Cooperate,Pessimistic Tit-for-tat,14,9
+Defect,Tempermental Player,27,32
+Defect,Human,30,30
+Defect,Optimistic Tit-for-tat,27,32
+Defect,Pessimistic Tit-for-tat,30,30
+Tempermental Player,Human,10,10
+Tempermental Player,Optimistic Tit-for-tat,10,10
+Tempermental Player,Pessimistic Tit-for-tat,29,29
+Human,Optimistic Tit-for-tat,27,32
+Human,Pessimistic Tit-for-tat,14,9
+Optimistic Tit-for-tat,Pessimistic Tit-for-tat,25,25

@@ -25,7 +25,7 @@ public class Cluster {
     final int ID;
     Point centroid = new Point();
     double energy;
-    LinkedList<Point> data;
+    LinkedList<Point> data = new LinkedList<Point>(); // list of points in the centroid
 
 
     void calculateCentroid() {
@@ -54,8 +54,12 @@ public class Cluster {
     }
 
     int reassignPoints(Cluster[] clusters) {
+        //for all points - determines the closest cluster centroid and reassigns
+        // the point to that cluster - unless no change is necessary
         int numReassign = 0;
-        for (Point p : data) {
+        for (int j = 0; j < data.size(); j++){
+            Point p = data.get(j);
+//        for (Point p : data) {
             EUDistance eud = new EUDistance();
             double dist = eud.getDistance(p, centroid);
             int closestCentroid = -1;
@@ -72,15 +76,17 @@ public class Cluster {
                 clusters[closestCentroid].addPoint(p);
                 removePoint(p);
                 numReassign += 1;
+                j--;
             }
         }
         return numReassign;
     }
 
     double getEnergy() {
+        // calculates the energy of the cluster
         energy = 0;
+        EUDistance eu = new EUDistance();
         for (Point p : data) {
-            EUDistance eu = new EUDistance();
             double dist = eu.getDistance(p, centroid);
             energy += dist;
         }
